@@ -1,0 +1,15 @@
+/* ============================================= */
+/*              Media query                      */
+/* ============================================= */
+
+@mixin mq($device) {
+    $screenSize: map-get($map: $breakpoints, $key: $device);
+
+    @if $screenSize == null {
+        @error "#{$device} is not a valid breakpoint name";
+    }
+
+    @media (min-width: $screenSize) {
+        @content;
+    }
+}

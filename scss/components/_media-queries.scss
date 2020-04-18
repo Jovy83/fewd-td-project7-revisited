@@ -1,0 +1,146 @@
+/* ============================================= */
+/*              Media Queries                    */
+/* ============================================= */
+.container {
+  @include mq('tablet') {
+    max-width: 1400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.centered {
+  @include mq('tablet') {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.row {
+  @include mq('tablet') {
+    flex-direction: row;
+  }
+}
+
+[class^=col] {
+  @include mq('tablet') {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    align-items: center;
+  }
+}
+
+[class^=col] + [class^=col] {
+  @include mq('tablet') {
+    margin-left: 10px;
+  }
+}
+
+.col-1 {
+  @include mq('tablet') {
+    flex-basis: 8.33%;
+  }
+}
+
+.col-2 {
+  @include mq('tablet') {
+    flex-basis: 16.67%;
+  }
+}
+
+.col-3 {
+  @include mq('tablet') {
+    flex-basis: 25.00%;
+  }
+}
+
+.col-4 {
+  @include mq('tablet') {
+    flex-basis: 33.33%;
+  }
+}
+
+.col-5 {
+  @include mq('tablet') {
+    flex-basis: 41.67%;
+  }
+}
+
+.col-6 {
+  @include mq('tablet') {
+    flex-basis: 50.00%;
+  }
+}
+
+.col-7 {
+  @include mq('tablet') {
+    flex-basis: 58.33%;
+  }
+}
+
+.col-8 {
+  @include mq('tablet') {
+    flex-basis: 66.67%;
+  }
+}
+
+.col-9 {
+  @include mq('tablet') {
+    flex-basis: 75.00%
+  }
+}
+
+.col-10 {
+  @include mq('tablet') {
+    flex-basis: 83.33%;
+  }
+}
+
+.col-11 {
+  @include mq('tablet') {
+    flex-basis: 91.67%;
+  }
+}
+
+.col-12 {
+  @include mq('tablet') {
+    flex-basis: 100%;
+  }
+}
+
+.nav {
+  @include mq('tablet') {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.nav-link {
+  @include mq('tablet') {
+    flex-basis: 100px;
+  }
+}
+
+.btn {
+  @include mq('tablet') {
+    padding: 10px 30px;
+  }
+}
+
+.btn + .btn {
+  @include mq('tablet') {
+    margin-left: 10px;
+  }
+}
+
+.logo {
+  @include mq('tablet') {
+    margin-left: initial;
+    margin-right: initial;
+  }
+}
+  
