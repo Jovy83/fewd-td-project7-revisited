@@ -2,30 +2,97 @@
 /*              Grid System                      */
 /* ============================================= */
 
-.container {
-  padding: 0 10px;
-}
-
-.row {
-  display: flex;
-  flex-direction: column;
-  padding: 1em 10px;
-}
-
-[class^=col] {
-  margin-top: 10px;
-  flex-basis: 100%;
-  min-height: 25px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-@for $i from 1 through 12 {
-  .theme.col-#{$i} {
-    background-color: map-get($map: $color-cols, $key: 'col-#{$i}');
+.grid-container {
+  @include mq('tablet') {
+    grid-template-columns: 55px 1fr;
+    grid-template-areas:
+      "header-area header-area"
+      "nav-area main-area";
   }
+
+  display: grid;
+  grid-template-columns: 100%; // fill the whole screen width
+  grid-template-rows: auto; // since rows are different heights based on the content, stretch to fill remaining size.
+  grid-template-areas: 
+    "header-area"
+    "nav-area"
+    "main-area";
 }
 
-.card {
-  flex-basis: 100%;
+.header-area {
+  grid-area: header-area;
+}
+
+.nav-area {
+  grid-area: nav-area;
+}
+
+.main-area {
+  @include mq('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "main-header main-header"
+    "alert-header alert-header"
+    "traffic traffic"
+    "daily platform"
+    "social social"
+    "members activity"
+    "message settings";
+  }
+
+  display: grid; // to layout the widgets
+  grid-template-columns: 100%; // fill the whole screen width
+  grid-template-areas: 
+    "main-header"
+    "alert-header"
+    "traffic"
+    "daily"
+    "platform"
+    "social"
+    "members"
+    "activity"
+    "message"
+    "settings";
+
+  grid-area: main-area;
+}
+
+.main-header {
+  grid-area: main-header;
+}
+
+.alert-header {
+  grid-area: alert-header
+}
+
+.traffic {
+  grid-area: traffic;
+}
+
+.daily {
+  grid-area: daily;
+}
+
+.platform {
+  grid-area: platform;
+}
+
+.social {
+  grid-area: social;
+}
+
+.members {
+  grid-area: members;
+}
+
+.activity {
+  grid-area: activity;
+}
+
+.message {
+  grid-area: message;
+}
+
+.settings {
+  grid-area: settings;
 }

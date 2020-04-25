@@ -2,24 +2,18 @@
 /*              Forms                            */
 /* ============================================= */
 
-.form {
-  flex-basis: 100%;
-}
+input[type="search"]{
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: $color-lightgray;
+  border: $size-input-border solid transparent;
+  border-radius: $size-input-border-radius;
+  transition: background 0.5s, border 0.5s;
 
-.input{
-  display: block;
-  width: 94%;
-  margin: 10px auto 0;
-  border: none;
-  padding: 10px;
-  border-bottom: 5px solid $color-secondary;
-}
-
-.hidden {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+  &:focus {
+    outline: none;
+    border: $size-input-border solid $color-accent;
+    background-color: $color-second-accent;
+  }
 }

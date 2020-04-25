@@ -3,13 +3,23 @@
 /* ============================================= */
 
 .img {
+  &-button {
+    // display: block;
+    @include dimensions($size-icon, $size-icon);
+  }
+
   &-avatar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    max-width: 100%; 
-    max-height: 100%;
+    @extend %rounded;
+    margin-left: 1rem;
+  }
+
+  &-nav {
+    @include dimensions($size-icon, $size-icon);
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   &-frame {
@@ -26,5 +36,28 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+/* ============================================= */
+/*              SVGs                             */
+/* ============================================= */
+
+.svg {
+  &-button {
+    @include dimensions($size-icon-alert, $size-icon-alert);
+  }
+
+
+  &-badge {
+    @extend %rounded;
+    @include dimensions($size-badge, $size-badge);
+    padding: 1rem;
+    background-color: $color-primary;
+    grid-area: badge;
+
+    & path {
+      fill: $color-white;
+    }
   }
 }

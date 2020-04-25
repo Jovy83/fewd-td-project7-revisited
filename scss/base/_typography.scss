@@ -12,46 +12,94 @@
 /* ============================================= */
 
 * {
-  font-family: 'Lato', sans-serif;
-  color: $color-primary;
+  font-family: $font-family--primary;
+  // color: $color-primary;
   box-sizing: border-box;
 }
-  
+
 p {
-  line-height: 1.45em;
+  // line-height: 1.45em;
 }
   
 a {
   text-decoration: none;
+  color: $color-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $color-gray;
 }
   
 /* ============================================= */
 /*              Typography                       */
 /* ============================================= */
+
+.title {
+  color: $color-white;
+  font-size: $size-title;
+}
+
+.thin {
+  font-weight: $font-weight-thin;
+  font-size: small;
+  vertical-align: top;
+}
+
+.name {
+  color: $color-white;
+  margin-left: 1rem;
+}
   
 .headline {
-  &-primary {
-    color: $color-secondary;
-    margin-left: 10px;
+  margin-bottom: 2rem;
+  // &-primary {
+  //   margin-bottom: 1rem;
+  //   // todo: maybe need to remove margin on desktop layout mq
+  // }
+
+  // &-secondary {
+  //   margin-bottom: 1rem;
+  //   // todo: maybe need to remove margin on desktop layout mq
+  // }
+
+  // todo: when project done, check if we still need this
+}
+
+.alert-banner {
+  &-message {
+    color: $color-white;
   }
 
-  &-secondary {
-    font-weight: 300;
+  &-close {
+    color: $color-white;
+    margin-left: 1rem;
+  }
+}
+
+.social {
+  &-text {
+    font-size: $size-social-text;
+    grid-area: label;
     color: $color-primary;
+    font-weight: bold;
   }
-}
 
-.link {
-  color: $color-accent;
-  font-weight: 700;
-}
+  &-count {
+    font-size: $size-social-count;
+    grid-area: count;
 
-.blockquote {
-  font-size: 1.5em;
-  font-weight: 300;
-  font-style: italic;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 8px solid $color-secondary;
-  border-radius: 5px;
+  }
 }

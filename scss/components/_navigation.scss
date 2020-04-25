@@ -3,24 +3,32 @@
 /* ============================================= */
 
 .nav {
-  padding-left: 0;
-  flex-basis: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+
+  &-item {
+    padding: 0.5rem;
+    border: $size-highlight-border transparent solid;
+  }
+}
+
+.active {
+  border-bottom: $size-highlight-border $color-accent solid;
+}
+
+.traffic-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
 
   &-link {
-    text-align: center;
-    border-radius: 5px;
-    padding: 10px 0;
-    display: block;
-    width: 100%;
-    transition: 
-    background-color .2s ease-in-out, 
-    color .2s ease-in-out;
-
-    &:hover {
-      color: $color-white;
-      background-color: $color-secondary;
-    }
+    padding: 0.5rem;
   }
+}
+
+.selected {
+  color: $color-white;
+  background-color: $color-accent;
+  border-radius: $size-selected-border-radius;
 }
