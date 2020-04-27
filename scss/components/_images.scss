@@ -3,14 +3,10 @@
 /* ============================================= */
 
 .img {
-  &-button {
-    // display: block;
-    @include dimensions($size-icon, $size-icon);
-  }
-
+  
   &-avatar {
+    @include dimensions($size-icon, $size-icon);
     @extend %rounded;
-    margin-left: 1rem;
   }
 
   &-nav {

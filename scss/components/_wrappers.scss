@@ -15,6 +15,7 @@
     @include flexy("row");
     align-items: center;
     border-left: $size-separator lightgray dashed;
+    padding-left: 1rem;
 }
 
 .nav-area {
@@ -101,6 +102,56 @@
         grid-template-areas: 
         "badge label"
         "badge count";
+    }
+}
+
+.members {
+    @extend %widget-bottom-margin;
+    @include flexy("column");
+    align-items: center;
+    border-bottom: $size-separator solid $color-secondary;
+
+    &-container {
+        width: 100%;
+        @include flexy("row");
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: $size-separator solid $color-anothergray;
+
+        &:last-child {
+            border: none;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &-text {
+        margin-left: 1rem;
+    }
+}
+
+.activity {
+    @extend %widget-bottom-margin;
+    @include flexy("column");
+    align-items: center;
+    border-bottom: $size-separator solid $color-secondary;
+
+    &-container {
+        width: 100%;
+        @include flexy("row");
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: $size-separator solid $color-anothergray;
+
+        &:last-child {
+            border: none;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &-text {
+        margin-left: 1rem;
     }
 }
 

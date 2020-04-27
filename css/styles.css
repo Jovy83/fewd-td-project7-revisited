@@ -34,17 +34,17 @@
   border-radius: 0.3125rem;
 }
 
-.alert-banner, .profile-panel, .header-area {
+.activity-container, .members-container, .alert-banner, .profile-panel, .header-area {
   display: flex;
   flex-direction: row;
 }
 
-.social, .platform, .daily, .traffic, .alert-header, .main-header {
+.activity, .members, .social, .platform, .daily, .traffic, .alert-header, .main-header {
   display: flex;
   flex-direction: column;
 }
 
-.social, .platform, .daily, .traffic, .alert-header, .main-header {
+.activity, .members, .social, .platform, .daily, .traffic, .alert-header, .main-header {
   margin-bottom: 2rem;
 }
 
@@ -475,6 +475,14 @@ h5 {
   grid-area: count;
 }
 
+.link {
+  color: #696cb7;
+}
+
+.accessory {
+  margin-left: auto;
+}
+
 /* ============================================= */
 /* Components Imports */
 /* ============================================= */
@@ -580,12 +588,9 @@ input[type=search]:focus {
 /* ============================================= */
 /*              Images                           */
 /* ============================================= */
-.img-button {
+.img-avatar {
   width: 2rem;
   height: 2rem;
-}
-.img-avatar {
-  margin-left: 1rem;
 }
 .img-nav {
   width: 2rem;
@@ -720,6 +725,7 @@ input[type=search]:focus {
 .profile-panel {
   align-items: center;
   border-left: 0.05rem lightgray dashed;
+  padding-left: 1rem;
 }
 
 .nav-area {
@@ -784,6 +790,44 @@ input[type=search]:focus {
   grid-template-columns: minmax(50px, 1fr) minmax(75px, 2fr);
   grid-gap: 0.2rem;
   grid-template-areas: "badge label" "badge count";
+}
+
+.members {
+  align-items: center;
+  border-bottom: 0.05rem solid #444367;
+}
+.members-container {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 0.05rem solid #b2b2b2;
+}
+.members-container:last-child {
+  border: none;
+  margin-bottom: 1rem;
+}
+.members-text {
+  margin-left: 1rem;
+}
+
+.activity {
+  align-items: center;
+  border-bottom: 0.05rem solid #444367;
+}
+.activity-container {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 0.05rem solid #b2b2b2;
+}
+.activity-container:last-child {
+  border: none;
+  margin-bottom: 1rem;
+}
+.activity-text {
+  margin-left: 1rem;
 }
 
 /* ============================================= */
