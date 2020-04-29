@@ -12,9 +12,9 @@ const $platformChartElement = $("#platform-chart");
 
 const alertHtml = `
 <div class="alert-banner">
-    <p class="alert-banner-message""><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
+    <p class="alert-banner-message text-primary"><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
     to complete</p>
-    <span class="alert-banner-close">X</span>
+    <span class="alert-banner-close">x</span>
 </div>
 `;
 

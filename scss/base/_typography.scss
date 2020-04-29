@@ -62,20 +62,31 @@ h5 {
   color: $color-white;
   margin-left: 1rem;
 }
+
+.text {
+  &-primary {
+    font-size: 1rem;
+  }
+
+  &-secondary {
+    font-size: 0.85rem;
+  }
+}
   
 .headline {
-  margin-bottom: 2rem;
-  // &-primary {
-  //   margin-bottom: 1rem;
-  //   // todo: maybe need to remove margin on desktop layout mq
-  // }
 
-  // &-secondary {
-  //   margin-bottom: 1rem;
-  //   // todo: maybe need to remove margin on desktop layout mq
-  // }
+  &-primary {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
 
-  // todo: when project done, check if we still need this
+  &-secondary {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
 }
 
 .alert-banner {

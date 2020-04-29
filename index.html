@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Web App Dashboard</title>
+        <link href="css/toggle-switch.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
@@ -34,7 +35,7 @@
           <div class="profile-panel"> 
             <img class="img-avatar" src="images/user.jpg" alt="User avatar">
 
-            <p class="name">Jovy Ong</p>
+            <p class="text-primary name">Jovy Ong</p>
           </div>
 
         </header>
@@ -72,9 +73,9 @@
 
           <!-- DASHBOARD AND SEARCH BAR SECTION -->
           <section class="main-header">
-            <h2 class="headline">Dashboard</h2>
+            <h2 class="headline-primary">Dashboard</h2>
             <div class="main-header-search">
-              <input type="search" placeholder="Search..." />
+              <input class="form-input" type="search" placeholder="Search..." />
             </div>
           </section>
 
@@ -82,16 +83,11 @@
           <div class="alert-header" id="alert">
             <!-- JS will insert alert here -->
             
-            <!-- <div class="alert-banner">
-              <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
-              to complete</p>
-              <p class="alert-banner-close">x</p>
-            </div> -->
           </div>
           
           <!-- TRAFFICE LINE GRAPH SECTION -->
           <section class="traffic">
-            <h3 class="headline">Traffic</h3>
+            <h3 class="headline-secondary">Traffic</h3>
             <ul class="traffic-nav">
               <li>
                 <a class="traffic-nav-link" href="#">Hourly</a>
@@ -115,7 +111,7 @@
 
           <!-- TRAFFICE BAR GRAPH SECTION -->
           <section class="daily">
-            <h3 class="headline">Daily Traffic</h3>
+            <h3 class="headline-secondary">Daily Traffic</h3>
             <div class="widget-container-half">
               <!-- element bar graph will attach to -->
               <canvas id="daily-chart"></canvas>
@@ -124,7 +120,7 @@
 
           <!-- TRAFFICE DONUT GRAPH SECTION -->
           <section class="platform">
-            <h3 class="headline">Mobile Users</h3>
+            <h3 class="headline-secondary">Mobile Users</h3>
             <div class="widget-container-half">
               <!-- element donut graph will attach to -->
               <canvas id="platform-chart"></canvas>
@@ -133,7 +129,7 @@
 
           <!-- SOCIAL SECTION -->
           <section class="social">
-            <h3 class="headline">Social Stats</h3>
+            <h3 class="headline-secondary">Social Stats</h3>
             <div class="social-container">
               <svg class="svg-badge" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -182,55 +178,55 @@
 
           <!-- NEW MEMBERS SECTION -->
           <section class="members">
-            <h3 class="headline">New Members</h3>
+            <h3 class="headline-secondary">New Members</h3>
             
             <div class="members-container">
               <img class="img-avatar" src="images/member-1.jpg" alt="Member 1 avatar">
               <div class="members-text">
-                <p>Victoria Chambers</p>
-                <a class="link" href="#">victoria.chambers80@example.com</a>
+                <p class="text-secondary">Victoria Chambers</p>
+                <a class="link text-secondary" href="#">victoria.chambers80@example.com</a>
               </div>
-              <p class="accessory">10/15/15</p>
+              <p class="accessory text-secondary">10/15/15</p>
             </div>
 
             <div class="members-container">
               <img class="img-avatar" src="images/member-2.jpg" alt="Member 2 avatar">
               <div class="members-text">
-                <p>Dale Byrd</p>
-                <a class="link" href="#">dale.byrd52@example.com</a>
+                <p class="text-secondary">Dale Byrd</p>
+                <a class="link text-secondary" href="#">dale.byrd52@example.com</a>
               </div>
-              <p class="accessory">10/15/15</p>
+              <p class="accessory text-secondary">10/15/15</p>
             </div>
 
             <div class="members-container">
               <img class="img-avatar" src="images/member-3.jpg" alt="Member 3 avatar">
               <div class="members-text">
-                <p>Dawn Wood</p>
-                <a class="link" href="#">dawn.wood16@example.com</a>
+                <p class="text-secondary">Dawn Wood</p>
+                <a class="link text-secondary" href="#">dawn.wood16@example.com</a>
               </div>
-              <p class="accessory">10/15/15</p>
+              <p class="accessory text-secondary">10/15/15</p>
             </div>
 
             <div class="members-container">
               <img class="img-avatar" src="images/member-4.jpg" alt="Member 4 avatar">
               <div class="members-text">
-                <p>Dan Oliver</p>
-                <a class="link" href="#">dan.oliver82@example.com</a>
+                <p class="text-secondary">Dan Oliver</p>
+                <a class="link text-secondary" href="#">dan.oliver82@example.com</a>
               </div>
-              <p class="accessory">10/15/15</p>
+              <p class="accessory text-secondary">10/15/15</p>
             </div>
 
           </section>
 
           <!-- RECENT ACTIVITY SECTION -->
           <section class="activity">
-            <h3 class="headline">Recent Activity</h3>
+            <h3 class="headline-secondary">Recent Activity</h3>
             
             <div class="activity-container">
               <img class="img-avatar" src="images/member-1.jpg" alt="Member 1 avatar">
               <div class="activity-text">
-                <p>Victoria Chambers commented on <a class="link" href="#">YourApp's SEO Tips</a></p>
-                <p>4 hours ago</p>
+                <p class="text-secondary">Victoria Chambers commented on <a class="link" href="#">YourApp's SEO Tips</a></p>
+                <p class="text-secondary">4 hours ago</p>
               </div>
               <a class="accessory" href="#">&gt;</a>
             </div>
@@ -238,8 +234,8 @@
             <div class="activity-container">
               <img class="img-avatar" src="images/member-2.jpg" alt="Member 2 avatar">
               <div class="activity-text">
-                <p>Dale Byrd liked the post <a class="link" href="#">Facebook's Changes for 2016</a></p>
-                <p>5 hours ago</p>
+                <p class="text-secondary">Dale Byrd liked the post <a class="link" href="#">Facebook's Changes for 2016</a></p>
+                <p class="text-secondary">5 hours ago</p>
               </div>
               <a class="accessory" href="#">&gt;</a>
             </div>
@@ -247,8 +243,8 @@
             <div class="activity-container">
               <img class="img-avatar" src="images/member-3.jpg" alt="Member 3 avatar">
               <div class="activity-text">
-                <p>Dawn Wood commented on <a class="link" href="#">Facebook's Changes for 2016</a></p>
-                <p>5 hours ago</p>
+                <p class="text-secondary">Dawn Wood commented on <a class="link" href="#">Facebook's Changes for 2016</a></p>
+                <p class="text-secondary">5 hours ago</p>
               </div>
               <a class="accessory" href="#">&gt;</a>
             </div>
@@ -256,8 +252,8 @@
             <div class="activity-container">
               <img class="img-avatar" src="images/member-4.jpg" alt="Member 4 avatar">
               <div class="activity-text">
-                <p>Dan Oliver posted <a class="link" href="#">YourApp's SEO Tips</a></p>
-                <p>1 day ago</p>
+                <p class="text-secondary">Dan Oliver posted <a class="link" href="#">YourApp's SEO Tips</a></p>
+                <p class="text-secondary">1 day ago</p>
               </div>
               <a class="accessory" href="#">&gt;</a>
             </div>
@@ -266,23 +262,51 @@
 
           <!-- MESSAGE SECTION -->
           <section class="message">
-            <h3 class="headline">Message User</h3>
+            <h3 class="headline-secondary">Message User</h3>
 
             <form class="message-form">
-              <input type="text" placeholder="Search for user" class="form-field" id="userField">
-              <textarea placeholder="Message for user" class="form-area" id="messageField"></textarea>
-              <button class="button-primary" id="send">Send</button>
+              <input type="text" placeholder="Search for user" class="form-input" id="userField">
+              <textarea placeholder="Message for user" class="form-textarea" id="messageField" rows="7"></textarea>
+              <button class="btn default" type="submit" id="send">Send</button>
             </form>
           </section>
 
           <!-- SETTINGS SECTION -->
           <section class="settings">
-            <h3 class="headline">Settings</h3>
+            <h3 class="headline-secondary">Settings</h3>
 
-            <!-- custom CSS toggle code-->
-            <!-- custom CSS toggle code-->
+            <div class="settings-switch-wrapper">
+              <strong>
+                Send Email Notifications
+              </strong>
+  
+              <label class="switch-light switch-ios form-label" onclick="">
+                <input type="checkbox">
+                <span>
+                  <span>Off</span>
+                  <span>On</span>
+                  <a></a>
+                </span>
+              </label>
+            </div>
 
-            <select class="form-field" id="timezone">
+            <div class="settings-switch-wrapper">
+              <strong>
+                Set Profile to Public
+              </strong>
+
+              <label class="switch-light switch-ios form-label" onclick="">
+                <input type="checkbox">
+
+                <span>
+                  <span>Off</span>
+                  <span>On</span>
+                  <a></a>
+                </span>
+              </label>
+            </div>
+
+            <select class="form-select" id="timezone">
               <option disabled selected>Select a Timezone</option>
               <option value="eastern">Eastern</option>
               <option value="central">Central</option>
@@ -290,9 +314,9 @@
               <option value="pacific">Pacific</option>
             </select>
 
-            <div class="settings-button">
-              <button class="button-primary" id="save">Save</button>
-              <button class="button-disabled" id="cancel">Cancel</button>
+            <div class="settings-buttons">
+              <button class="btn default" id="save">Save</button>
+              <button class="btn warning" id="cancel">Cancel</button>
             </div>
           </section>
 

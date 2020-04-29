@@ -29,19 +29,11 @@
 
 .main-header {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
-
-    &-search {
-        width: 100%;
-    }
 }
 
 .alert-header {
     @extend %rounded-rectangular-border;
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     background-color: $color-primary;
 }
 
@@ -52,46 +44,35 @@
 
 .traffic {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     border-bottom: $size-separator solid $color-secondary;
 }
 
 .daily {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     border-bottom: $size-separator solid $color-secondary;
 }
 
 .platform {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     border-bottom: $size-separator solid $color-secondary;
 }
 
 .widget-container {
     &-full {
-        width: 100%;
         margin-bottom: 2rem;
     }
 
     &-half {
-        width: 100%;
         margin-bottom: 2rem;
     }
 }
 
 .social {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     border-bottom: $size-separator solid $color-secondary;
 
     &-container {
         @extend %rounded-rectangular-border;
-        width: 100%;
         padding: 1rem;
         margin-bottom: 2rem;
         background-color: $color-lightgray;
@@ -107,12 +88,9 @@
 
 .members {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     border-bottom: $size-separator solid $color-secondary;
 
     &-container {
-        width: 100%;
         @include flexy("row");
         justify-content: space-between;
         align-items: center;
@@ -132,12 +110,9 @@
 
 .activity {
     @extend %widget-bottom-margin;
-    @include flexy("column");
-    align-items: center;
     border-bottom: $size-separator solid $color-secondary;
 
     &-container {
-        width: 100%;
         @include flexy("row");
         justify-content: space-between;
         align-items: center;
@@ -155,3 +130,23 @@
     }
 }
 
+.message {
+    @extend %widget-bottom-margin;
+    border-bottom: $size-separator solid $color-secondary;
+}
+
+.settings {
+    @extend %widget-bottom-margin;
+
+    &-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+    }
+
+    &-switch-wrapper {
+        @include flexy("row");
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+}

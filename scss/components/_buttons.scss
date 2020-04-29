@@ -3,15 +3,13 @@
 /* ============================================= */
 
 .btn {
-  margin-top: 15px;
-  width: 100%;
-  color: $color-white;
-  border: none;
-  padding: 10px 0;
-  text-transform: uppercase;
-  border-radius: 5px;
+  @extend %rounded-rectangular-border;
+  @extend %standard-button;
+}
 
-  transition: background-color 0.5s ease-out;
+// only submit button should have bottom margin
+.btn[type="submit"] {
+  margin-bottom: 2rem;
 }
 
 @each $button-type, $color in $color-buttons {

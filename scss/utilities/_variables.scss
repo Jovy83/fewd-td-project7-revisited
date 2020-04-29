@@ -18,7 +18,7 @@ $color-buttons: (
     'error': #e4757a,
     'info': #927bc1,
     'success': #63cc82,
-    'warning': #a9a9a9,
+    'warning': $color-accent,
 );
 
 $color-cols: (

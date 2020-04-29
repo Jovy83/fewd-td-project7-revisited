@@ -2,18 +2,21 @@
 /*              Forms                            */
 /* ============================================= */
 
-input[type="search"]{
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: $color-lightgray;
-  border: $size-input-border solid transparent;
-  border-radius: $size-input-border-radius;
-  transition: background 0.5s, border 0.5s;
+.form {
+  &-input {
+    @extend %standard-form-input;
+  }
 
-  &:focus {
-    outline: none;
-    border: $size-input-border solid $color-accent;
-    background-color: $color-second-accent;
+  &-textarea {
+    @extend %standard-form-input;
+    resize: none;
+  }
+
+  &-select {
+    @extend %standard-form-select;
+  }
+
+  &-label {
+    width: 20%;
   }
 }
