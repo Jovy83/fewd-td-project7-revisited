@@ -23,37 +23,66 @@
 }
 
 .main-area {
+    @include mq("tablet") {
+        padding: 0;
+    }
     padding: 1rem;
-    // todo: maybe need to remove padding on desktop layout
 }
 
 .main-header {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-lightgray;
+    }
 }
 
 .alert-header {
     @extend %rounded-rectangular-border;
     @extend %widget-bottom-margin;
     background-color: $color-primary;
+
+    @include mq("tablet") {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
 
 .alert-banner {
     @include flexy("row");
+    justify-content: space-between;
     padding: 1rem;
 }
 
 .traffic {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        padding: 1rem 1rem 0;
+        margin-bottom: 0;
+    }
+
     border-bottom: $size-separator solid $color-secondary;
 }
 
 .daily {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem 1rem 0;
+        border-right: $size-separator solid $color-secondary;
+    }
+
     border-bottom: $size-separator solid $color-secondary;
 }
 
 .platform {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem 1rem 0;
+    }
     border-bottom: $size-separator solid $color-secondary;
 }
 
@@ -69,10 +98,26 @@
 
 .social {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem 1rem 0;
+    }
+
     border-bottom: $size-separator solid $color-secondary;
 
-    &-container {
+    &-cards {
+        @include mq("tablet") {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+        }
+    }
+
+    &-card {
         @extend %rounded-rectangular-border;
+        @include mq("tablet") {
+            grid-column-gap: 2rem;
+        }
         padding: 1rem;
         margin-bottom: 2rem;
         background-color: $color-lightgray;
@@ -88,6 +133,12 @@
 
 .members {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem 1rem 0;
+        border-right: $size-separator solid $color-secondary;
+    }
+
     border-bottom: $size-separator solid $color-secondary;
 
     &-container {
@@ -110,6 +161,11 @@
 
 .activity {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem 1rem 0;
+    }
+
     border-bottom: $size-separator solid $color-secondary;
 
     &-container {
@@ -132,11 +188,24 @@
 
 .message {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem;
+        border-right: $size-separator solid $color-secondary;
+        border-bottom: none;
+    }
     border-bottom: $size-separator solid $color-secondary;
 }
 
 .settings {
     @extend %widget-bottom-margin;
+    @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
     &-buttons {
         display: grid;

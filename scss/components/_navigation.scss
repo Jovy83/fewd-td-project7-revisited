@@ -3,6 +3,9 @@
 /* ============================================= */
 
 .nav {
+  @include mq("desktop") {
+    // flex-direction: column;
+  }
   display: flex;
   justify-content: space-around;
 

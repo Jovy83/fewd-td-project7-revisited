@@ -3,7 +3,7 @@
 /* ============================================= */
 
 .grid-container {
-  @include mq('tablet') {
+  @include mq("desktop") {
     grid-template-columns: 55px 1fr;
     grid-template-areas:
       "header-area header-area"
@@ -28,7 +28,7 @@
 }
 
 .main-area {
-  @include mq('tablet') {
+  @include mq("tablet") {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
     "main-header main-header"

@@ -7,6 +7,15 @@
     @extend %standard-form-input;
   }
 
+  &-input[type="search"] {
+    @include mq("tablet") {
+      background-color: $color-white;
+      margin-bottom: 0;
+      margin-right: 1rem;
+      width: 30%;
+    }
+  }
+
   &-textarea {
     @extend %standard-form-input;
     resize: none;

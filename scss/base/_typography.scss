@@ -79,6 +79,14 @@ h5 {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 1.5rem;
+
+    &.tab {
+      @include mq("tablet") {
+        margin-bottom: 0;
+        padding: 1rem;
+        background-color: $color-white;
+      }
+    }
   }
 
   &-secondary {
@@ -96,7 +104,6 @@ h5 {
 
   &-close {
     color: $color-white;
-    margin-left: 1rem;
   }
 }
 
