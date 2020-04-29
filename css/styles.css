@@ -507,6 +507,11 @@ h5 {
   text-align: center;
   font-size: 1.3rem;
 }
+@media (min-width: 768px) {
+  .headline-secondary {
+    text-align: left;
+  }
+}
 
 .alert-banner-message {
   color: #fff;
@@ -609,6 +614,11 @@ h5 {
   display: flex;
   justify-content: space-around;
 }
+@media (min-width: 1024px) {
+  .nav {
+    flex-direction: column;
+  }
+}
 .nav-item {
   padding: 0.5rem;
   border: 0.35rem transparent solid;
@@ -616,6 +626,12 @@ h5 {
 
 .active {
   border-bottom: 0.35rem #76c284 solid;
+}
+@media (min-width: 1024px) {
+  .active {
+    border-bottom: 0.35rem transparent solid;
+    border-left: 0.35rem #76c284 solid;
+  }
 }
 
 .traffic-nav {
@@ -692,7 +708,7 @@ h5 {
 }
 @media (min-width: 1024px) {
   .grid-container {
-    grid-template-columns: 55px 1fr;
+    grid-template-columns: minmax(20px, min-content) 1fr;
     grid-template-areas: "header-area header-area" "nav-area main-area";
   }
 }
@@ -820,6 +836,12 @@ h5 {
   .traffic {
     padding: 1rem 1rem 0;
     margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .traffic-header {
+    display: flex;
+    justify-content: space-between;
   }
 }
 

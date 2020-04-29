@@ -64,6 +64,13 @@
     }
 
     border-bottom: $size-separator solid $color-secondary;
+
+    &-header {
+        @include mq("tablet") {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }
 
 .daily {

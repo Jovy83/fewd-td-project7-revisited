@@ -4,8 +4,9 @@
 
 .nav {
   @include mq("desktop") {
-    // flex-direction: column;
+    flex-direction: column;
   }
+
   display: flex;
   justify-content: space-around;
 
@@ -16,6 +17,11 @@
 }
 
 .active {
+  @include mq("desktop") {
+    border-bottom: $size-highlight-border transparent solid;
+    border-left: $size-highlight-border $color-accent solid;
+  }
+  
   border-bottom: $size-highlight-border $color-accent solid;
 }
 

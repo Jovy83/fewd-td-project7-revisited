@@ -46,7 +46,7 @@ const trafficData = {
 };
 
 const trafficOptions = {
-    // aspectRatio: 2.5,
+    aspectRatio: 2.5,
     animation: {
         duration: 0
     },
@@ -106,12 +106,20 @@ const platformData = {
         backgroundColor: ["rgba(103, 168, 183, 1)", "rgba(118, 194, 132, 1)", "rgba(104, 108, 183, 1)"],
         borderWidth: 1,
     }]
-}
+};
+
+const platformOptions = {
+    legend: {
+        position: "right",
+        labels: {
+            boxWidth: 20,
+            fontStyle: "bold"
+        }
+    }
+};
 
 let platformChart = new Chart($platformChartElement, {
     type: "doughnut",
     data: platformData,
-    options: {
-
-    }
+    options: platformOptions
 });
