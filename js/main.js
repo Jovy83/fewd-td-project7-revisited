@@ -5,6 +5,10 @@ const $alertSection = $("#alert");
 const $trafficChartElement = $("#traffic-chart");
 const $dailyChartElement = $("#daily-chart");
 const $platformChartElement = $("#platform-chart");
+const $settingsButtonDiv = $(".settings-buttons");
+const $emailPrefsInputElement = $("#email-prefs");
+const $profilePrefsInputElement = $("#profile-prefs");
+const $timezoneSelectElement = $("#timezone");
 
 /* ============================================= */
 /*              Alert banner                     */
@@ -46,7 +50,7 @@ const trafficData = {
 };
 
 const trafficOptions = {
-    aspectRatio: 2.5,
+    // aspectRatio: 2.5,
     animation: {
         duration: 0
     },
@@ -123,3 +127,87 @@ let platformChart = new Chart($platformChartElement, {
     data: platformData,
     options: platformOptions
 });
+
+/* ============================================= */
+/*              Helper functions                 */
+/* ============================================= */
+
+const convertStringToBoolean = string => {
+    return (string === "true");
+}
+
+/* ============================================= */
+/*              Local storage                    */
+/* ============================================= */
+
+const supportsLocalStorage = () => {
+    try {
+        return "localStorage" in window && window["localStorage"] !== null;
+    } catch (e) {
+        return false;
+    }
+};
+
+const loadPreference = () => {
+    // load the user settings from the localStorage
+    // we need to convert the string to boolean (for the sliders) first because localStorage stores data in strings
+    const emailPrefs = convertStringToBoolean(localStorage.emailPrefs);
+    const profilePrefs = convertStringToBoolean(localStorage.profilePrefs);
+    const timezonePrefs = localStorage.timezonePrefs;
+
+    $emailPrefsInputElement.prop("checked", emailPrefs);
+    $profilePrefsInputElement.prop("checked", profilePrefs);
+    $timezoneSelectElement.val(timezonePrefs).change();
+};
+
+const savePreference = () => {
+    // check first if timezone is selected, if not, show alert
+    if ($timezoneSelectElement.val() === null) {
+        alert("Please select timezone!");
+        return;
+    }
+    
+    console.log($emailPrefsInputElement.prop("checked"));
+    console.log($profilePrefsInputElement.prop("checked"));
+    console.log($timezoneSelectElement.val());
+
+    localStorage.emailPrefs = $emailPrefsInputElement.prop("checked");
+    localStorage.profilePrefs = $profilePrefsInputElement.prop("checked");
+    localStorage.timezonePrefs = $timezoneSelectElement.val();
+    console.log(`Successfully saved preferences to localStorage`);
+};
+
+const deletePreference = () => {
+    localStorage.emailPrefs = null;
+    localStorage.profilePrefs = null;
+    localStorage.timezonePrefs = null;
+
+    $emailPrefsInputElement.prop("checked", false);
+    $profilePrefsInputElement.prop("checked", false);
+    $timezoneSelectElement.val(null).change();
+
+    console.log(`Successfully deleted preferences to localStorage`);
+}
+
+$settingsButtonDiv.on("click", (event) => {
+    if (event.target.id === "save") {
+        console.log("Save button was clicked");
+        savePreference();
+        alert("Preference saved.");
+    } else if (event.target.id === "cancel") {
+        console.log("Cancel button was clicked");
+        deletePreference()
+        alert("Preference deleted.");
+    }
+});
+
+// A $( document ).ready() block. This is fired when the page is completely loaded
+$(document).ready( ()=> {
+    loadPreference();
+});
+
+
+//TODO: fix chart resizing -- no need to handle 
+//TODO: user search
+//TODO: traffic chart functionality
+//TODO: alert notifications
