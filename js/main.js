@@ -5,6 +5,9 @@ const $alertSection = $("#alert");
 const $trafficChartElement = $("#traffic-chart");
 const $dailyChartElement = $("#daily-chart");
 const $platformChartElement = $("#platform-chart");
+const $searchUserInput = $("#userField");
+const $messageTextarea = $("#messageField");
+const $submitButton = $("#send");
 const $settingsButtonDiv = $(".settings-buttons");
 const $emailPrefsInputElement = $("#email-prefs");
 const $profilePrefsInputElement = $("#profile-prefs");
@@ -135,6 +138,23 @@ let platformChart = new Chart($platformChartElement, {
 const convertStringToBoolean = string => {
     return (string === "true");
 }
+
+/* ============================================= */
+/*               Form area                       */
+/* ============================================= */
+
+$submitButton.on("click", (event) => {
+    // prevent browser default
+    event.preventDefault();
+
+    // prevent user from submitting if fields are empty
+    const userString = $searchUserInput.val();
+    const messageString = $messageTextarea.val();
+
+    if (userString === "" || messageString === "") {
+        alert("Please fill out required fields!");
+    }
+});
 
 /* ============================================= */
 /*              Local storage                    */
