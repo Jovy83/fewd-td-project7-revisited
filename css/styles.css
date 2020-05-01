@@ -696,6 +696,12 @@ h5 {
 .svg-badge path {
   fill: #fff;
 }
+.svg-rotates {
+  transition: transform 0.2s;
+}
+.svg-rotates:hover {
+  transform: rotate(30deg);
+}
 
 /* ============================================= */
 /*              Grid System                      */
