@@ -21,7 +21,7 @@
     border-bottom: $size-highlight-border transparent solid;
     border-left: $size-highlight-border $color-accent solid;
   }
-  
+
   border-bottom: $size-highlight-border $color-accent solid;
 }
 
@@ -32,6 +32,8 @@
 
   &-link {
     padding: 0.5rem;
+    border-radius: $size-selected-border-radius;
+    transition: color 0.5s, background-color 0.5s, border-radius 0.3s;
   }
 }
 
