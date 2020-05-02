@@ -1,17 +1,68 @@
 /* ============================================= */
 /*              DOM variables                    */
 /* ============================================= */
-const $alertSection = $("#alert");
-const $trafficChartElement = $("#traffic-chart");
-const $dailyChartElement = $("#daily-chart");
-const $platformChartElement = $("#platform-chart");
-const $searchUserInput = $("#userField");
-const $messageTextarea = $("#messageField");
-const $submitButton = $("#send");
-const $settingsButtonDiv = $(".settings-buttons");
-const $emailPrefsInputElement = $("#email-prefs");
-const $profilePrefsInputElement = $("#profile-prefs");
-const $timezoneSelectElement = $("#timezone");
+
+const $bellButton = $(`#bellButton`);
+const $newNotificationDot = $(`#dot`);
+const $notificationsDiv = $(`#notifications`);
+const $notificationEntryDivs = $(`.notification-entry`);
+const $alertSection = $(`#alert`);
+const $trafficChartElement = $(`#traffic-chart`);
+const $dailyChartElement = $(`#daily-chart`);
+const $platformChartElement = $(`#platform-chart`);
+const $searchUserInput = $(`#userField`);
+const $messageTextarea = $(`#messageField`);
+const $submitButton = $(`#send`);
+const $settingsButtonDiv = $(`.settings-buttons`);
+const $emailPrefsInputElement = $(`#email-prefs`);
+const $profilePrefsInputElement = $(`#profile-prefs`);
+const $timezoneSelectElement = $(`#timezone`);
+
+/* ============================================= */
+/*              Variables                        */
+/* ============================================= */
+
+let notificationsDivIsHidden = true;
+let notificationsLeft = $notificationEntryDivs.length;
+
+/* ============================================= */
+/*               Notifications                   */
+/* ============================================= */
+
+// handler of show/hide of the notifications div
+$bellButton.on(`click`, (event) => {
+    // hide the newNotificationDot
+    $newNotificationDot.hide();
+
+    // show or hide the notificationsDiv
+    if (notificationsDivIsHidden) {
+        $notificationsDiv.show();
+    } else {
+        $notificationsDiv.hide();
+    }
+
+    notificationsDivIsHidden = !notificationsDivIsHidden;
+});
+
+// handler for dismissing notifications
+$notificationsDiv.on(`click`, (event) => {
+
+    // only handle close notification button click
+    if ($(event.target).hasClass(`notification-entry-close`)) {
+        // get the parent so we can hide it
+        $(event.target).parent().hide();
+
+        // also need to hide the notifications div if there are no more notification entries to show
+        notificationsLeft--;
+        console.log(`Notifications left: ${notificationsLeft}`);
+        
+        if (notificationsLeft <= 0) {
+            $notificationsDiv.hide();
+            notificationsDivIsHidden = true;
+        }
+    }
+
+});
 
 /* ============================================= */
 /*              Alert banner                     */
@@ -26,7 +77,7 @@ const alertHtml = `
 `;
 
 $alertSection.html(alertHtml);
-$alertSection.on("click", (event) => {
+$alertSection.on(`click`, (event) => {
     if ($(event.target).hasClass(`alert-banner-close`)) {
         // $(event.target).parent().fadeOut().delay(5000).hide();
         $alertSection.fadeOut();
@@ -38,16 +89,16 @@ $alertSection.on("click", (event) => {
 /* ============================================= */
 
 const trafficData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July",
-    "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: [`Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `July`,
+    `Aug`, `Sep`, `Oct`, `Nov`, `Dec`],
     datasets: [{
-        label: "Traffic",
+        label: `Traffic`,
         data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500,
         2500, 2000],
-        backgroundColor: "rgba(226, 227, 244, 0.5)",
-        borderColor: "rgba(115, 121, 186, 1)",
+        backgroundColor: `rgba(226, 227, 244, 0.5)`,
+        borderColor: `rgba(115, 121, 186, 1)`,
         borderWidth: 1,
-        pointBackgroundColor: "#fff",
+        pointBackgroundColor: `#fff`,
         lineTension: 0
     }]
 };
@@ -70,15 +121,15 @@ const trafficOptions = {
 };
 
 let trafficChart = new Chart($trafficChartElement, {
-    type: "line",
+    type: `line`,
     data: trafficData,
     options: trafficOptions
 });
 
 const dailyData = {
-    labels: ["S", "M", "T", "W", "T", "F", "S"],
+    labels: [`S`, `M`, `T`, `W`, `T`, `F`, `S`],
     datasets: [{
-        label: "Daily Traffic",
+        label: `Daily Traffic`,
         data: [75, 100, 175, 125, 225, 200, 75],
         backgroundColor: 'rgba(104, 108, 183, 1)',
         borderColor: 'rgba(115, 121, 186, 1)',
@@ -100,33 +151,33 @@ const dailyOptions = {
 };
 
 let dailyChart = new Chart($dailyChartElement, {
-    type: "bar",
+    type: `bar`,
     data: dailyData,
     options: dailyOptions
 });
 
 const platformData = {
-    labels: ["Phones", "Tablets", "Desktop"],
+    labels: [`Phones`, `Tablets`, `Desktop`],
     datasets: [{
-        label: "Users",
+        label: `Users`,
         data: [25, 10, 65],
-        backgroundColor: ["rgba(103, 168, 183, 1)", "rgba(118, 194, 132, 1)", "rgba(104, 108, 183, 1)"],
+        backgroundColor: [`rgba(103, 168, 183, 1)`, `rgba(118, 194, 132, 1)`, `rgba(104, 108, 183, 1)`],
         borderWidth: 1,
     }]
 };
 
 const platformOptions = {
     legend: {
-        position: "right",
+        position: `right`,
         labels: {
             boxWidth: 20,
-            fontStyle: "bold"
+            fontStyle: `bold`
         }
     }
 };
 
 let platformChart = new Chart($platformChartElement, {
-    type: "doughnut",
+    type: `doughnut`,
     data: platformData,
     options: platformOptions
 });
@@ -136,14 +187,14 @@ let platformChart = new Chart($platformChartElement, {
 /* ============================================= */
 
 const convertStringToBoolean = string => {
-    return (string === "true");
+    return (string === `true`);
 }
 
 /* ============================================= */
 /*               Form area                       */
 /* ============================================= */
 
-$submitButton.on("click", (event) => {
+$submitButton.on(`click`, (event) => {
     // prevent browser default
     event.preventDefault();
 
@@ -151,8 +202,8 @@ $submitButton.on("click", (event) => {
     const userString = $searchUserInput.val();
     const messageString = $messageTextarea.val();
 
-    if (userString === "" || messageString === "") {
-        alert("Please fill out required fields!");
+    if (userString === `` || messageString === ``) {
+        alert(`Please fill out required fields!`);
     }
 });
 
@@ -162,7 +213,7 @@ $submitButton.on("click", (event) => {
 
 const supportsLocalStorage = () => {
     try {
-        return "localStorage" in window && window["localStorage"] !== null;
+        return `localStorage` in window && window[`localStorage`] !== null;
     } catch (e) {
         return false;
     }
@@ -175,24 +226,24 @@ const loadPreference = () => {
     const profilePrefs = convertStringToBoolean(localStorage.profilePrefs);
     const timezonePrefs = localStorage.timezonePrefs;
 
-    $emailPrefsInputElement.prop("checked", emailPrefs);
-    $profilePrefsInputElement.prop("checked", profilePrefs);
+    $emailPrefsInputElement.prop(`checked`, emailPrefs);
+    $profilePrefsInputElement.prop(`checked`, profilePrefs);
     $timezoneSelectElement.val(timezonePrefs).change();
 };
 
 const savePreference = () => {
     // check first if timezone is selected, if not, show alert
     if ($timezoneSelectElement.val() === null) {
-        alert("Please select timezone!");
+        alert(`Please select timezone!`);
         return;
     }
     
-    console.log($emailPrefsInputElement.prop("checked"));
-    console.log($profilePrefsInputElement.prop("checked"));
+    console.log($emailPrefsInputElement.prop(`checked`));
+    console.log($profilePrefsInputElement.prop(`checked`));
     console.log($timezoneSelectElement.val());
 
-    localStorage.emailPrefs = $emailPrefsInputElement.prop("checked");
-    localStorage.profilePrefs = $profilePrefsInputElement.prop("checked");
+    localStorage.emailPrefs = $emailPrefsInputElement.prop(`checked`);
+    localStorage.profilePrefs = $profilePrefsInputElement.prop(`checked`);
     localStorage.timezonePrefs = $timezoneSelectElement.val();
     console.log(`Successfully saved preferences to localStorage`);
 };
@@ -202,22 +253,22 @@ const deletePreference = () => {
     localStorage.profilePrefs = null;
     localStorage.timezonePrefs = null;
 
-    $emailPrefsInputElement.prop("checked", false);
-    $profilePrefsInputElement.prop("checked", false);
+    $emailPrefsInputElement.prop(`checked`, false);
+    $profilePrefsInputElement.prop(`checked`, false);
     $timezoneSelectElement.val(null).change();
 
     console.log(`Successfully deleted preferences to localStorage`);
 }
 
-$settingsButtonDiv.on("click", (event) => {
-    if (event.target.id === "save") {
-        console.log("Save button was clicked");
+$settingsButtonDiv.on(`click`, (event) => {
+    if (event.target.id === `save`) {
+        console.log(`Save button was clicked`);
         savePreference();
-        alert("Preference saved.");
-    } else if (event.target.id === "cancel") {
-        console.log("Cancel button was clicked");
+        alert(`Preference saved.`);
+    } else if (event.target.id === `cancel`) {
+        console.log(`Cancel button was clicked`);
         deletePreference()
-        alert("Preference deleted.");
+        alert(`Preference deleted.`);
     }
 });
 
@@ -230,4 +281,3 @@ $(document).ready( ()=> {
 //TODO: fix chart resizing -- no need to handle 
 //TODO: user search
 //TODO: traffic chart functionality
-//TODO: alert notifications

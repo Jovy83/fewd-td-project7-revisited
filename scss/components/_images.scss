@@ -44,7 +44,6 @@
     @include dimensions($size-icon-alert, $size-icon-alert);
   }
 
-
   &-badge {
     @extend %rounded;
     @include dimensions($size-badge, $size-badge);

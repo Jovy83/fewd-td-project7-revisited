@@ -25,3 +25,9 @@
     }
   }
 }
+
+.transparent {
+  // because we want to be able to see the svg bell
+  background: none;
+  border: none;
+}

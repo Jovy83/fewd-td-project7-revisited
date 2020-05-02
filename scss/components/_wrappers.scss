@@ -6,9 +6,55 @@
     background-color: $color-primary;
 }
 
-.notification-panel {
-    margin-left: auto;
-    margin-right: 1rem;
+.notification {
+
+    &-panel {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+
+    &-button {
+        position: relative;
+    }
+
+    &-dot {
+        @extend %rounded;
+        position: absolute;
+        border: $size-border-notification-dot solid $color-accent;
+        top: -7%;
+        right: 15%;
+    }
+
+    &-entries {
+        display: none;
+        background-color: $color-white;
+        border: $size-highlight-border solid $color-lightgray;
+        border-radius: $size-input-border-radius;
+        padding: 1rem;
+        position: absolute;
+        top: 8%;
+        right: 5%;
+    }
+
+    &-entry {
+        @include flexy("row");
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: $size-separator solid $color-primary;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border: none;
+        }
+
+        & button {
+            margin-left: 2rem;
+        }
+    }
+    
 }
 
 .profile-panel {
