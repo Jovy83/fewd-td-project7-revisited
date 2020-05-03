@@ -1010,6 +1010,17 @@ h5 {
     border-bottom: none;
   }
 }
+.message-autocomplete {
+  margin-bottom: 1rem;
+}
+.message-autocomplete li {
+  padding: 0.5rem;
+  border: 0.05rem solid #b2b2b2;
+  border-bottom: none;
+}
+.message-autocomplete li:last-child {
+  border-bottom: 0.05rem solid #b2b2b2;
+}
 
 @media (min-width: 768px) {
   .settings {

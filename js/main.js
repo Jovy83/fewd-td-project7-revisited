@@ -15,6 +15,7 @@ const $platformChartElement = $(`#platform-chart`);
 const $searchUserInput = $(`#userField`);
 const $messageTextarea = $(`#messageField`);
 const $submitButton = $(`#send`);
+const $autocompleteUl = $(`#autocomplete`);
 const $settingsButtonDiv = $(`.settings-buttons`);
 const $emailPrefsInputElement = $(`#email-prefs`);
 const $profilePrefsInputElement = $(`#profile-prefs`);
@@ -26,6 +27,8 @@ const $timezoneSelectElement = $(`#timezone`);
 
 let notificationsDivIsHidden = true;
 let notificationsLeft = $notificationEntryDivs.length;
+const users = ['Andy','Bill','Carrie','Dale','Dawn','Dan','Earnest','Fred','Gregory','Holly','Inigo','Jenny','Kenny','Libby','Mindy','Nikki','Onobe','Penny','Quinn','Randall','Sandy','Tom','Umbrasil','Victoria','Wendy','Xavier','Yvette','Zander'];
+
 
 /* ============================================= */
 /*               Notifications                   */
@@ -284,6 +287,51 @@ const convertStringToBoolean = string => {
 /* ============================================= */
 /*               Form area                       */
 /* ============================================= */
+
+const closeAutoCompleteList = () => {
+    // delete every li child of in the autocompleteUl 
+    $autocompleteUl.html(``);
+};
+
+$searchUserInput.on(`keyup`, (event) => {
+    // delete any previous autocomplete entries to prevent duplicate entries
+    closeAutoCompleteList();
+
+    const searchString = $(event.target).val().toLowerCase();
+    
+    // if searchString is empty, simply close autocompleteUl
+    if (searchString === ``) {
+        closeAutoCompleteList();
+        return;
+    }
+    
+    // autocomplete logic
+    users.forEach( (user) => {
+        // check if the item starts with the same letters as the text field value
+        if(user.substr(0, searchString.length).toLowerCase() === searchString) {
+            // there's a match!
+
+            // create a new li for each matching element
+            const newLi = `<li><strong>${user.substr(0, searchString.length)}</strong>${user.substr(searchString.length)}</li>`;
+
+            // append this to notifications ul
+            $autocompleteUl.append($(newLi));
+        }
+    });
+});
+
+// click handler on the autocompleteUl li children so that when the user presses on the LIs, the value transfers to the $searchUserInput field
+$autocompleteUl.on(`click`, `li`, (event) => {
+    // get the text from the li
+    const text = $(event.target).text();
+
+    // transfer text to $searchUserInput field
+    $searchUserInput.val(text);
+
+    // close the autocomplete list
+    closeAutoCompleteList();
+});
+
 
 $submitButton.on(`click`, (event) => {
     // prevent browser default

@@ -248,6 +248,20 @@
         border-bottom: none;
     }
     border-bottom: $size-separator solid $color-secondary;
+
+    &-autocomplete {
+        margin-bottom: 1rem;
+
+        & li {
+            padding: 0.5rem;
+            border: $size-separator solid $color-anothergray;
+            border-bottom: none;
+    
+            &:last-child {
+                border-bottom: $size-separator solid $color-anothergray;
+            }
+        }
+    }
 }
 
 .settings {
