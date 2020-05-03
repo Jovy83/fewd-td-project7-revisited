@@ -47,7 +47,6 @@
   &-badge {
     @extend %rounded;
     @include dimensions($size-badge, $size-badge);
-    padding: 1rem;
     background-color: $color-primary;
     grid-area: badge;
 

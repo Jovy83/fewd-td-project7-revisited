@@ -696,7 +696,6 @@ h5 {
 .svg-badge {
   width: 5rem;
   height: 5rem;
-  padding: 1rem;
   background-color: #696cb7;
   grid-area: badge;
 }
